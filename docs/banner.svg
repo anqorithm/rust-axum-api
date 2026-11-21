@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="rust-axum-api: a REST API in Rust with Axum, SQLx and SQLite">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1410"/>
+      <stop offset="1" stop-color="#3b1f0f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f74c00"/>
+      <stop offset="1" stop-color="#ffb347"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="24" fill="url(#bg)"/>
+  <g fill="none" stroke="#f74c00" stroke-opacity="0.18" stroke-width="2">
+    <circle cx="1040" cy="160" r="70"/><circle cx="1040" cy="160" r="110"/><circle cx="1040" cy="160" r="150"/>
+  </g>
+  <text x="1040" y="185" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="72" font-weight="700" fill="url(#accent)">{ }</text>
+  <text x="80" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="64" font-weight="700" fill="#fff">rust-axum-api</text>
+  <rect x="80" y="165" width="220" height="6" rx="3" fill="url(#accent)"/>
+  <text x="80" y="220" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" fill="#e8d9cf">A fast, tested REST API in Rust</text>
+  <text x="80" y="262" font-family="ui-monospace, Menlo, monospace" font-size="20" fill="#ffb347">axum · tokio · sqlx · sqlite</text>
+</svg>
