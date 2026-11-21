@@ -36,7 +36,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.target }}
-          path: rust-axum-api-*.*
+          path: |
+            rust-axum-api-*.tar.gz
+            rust-axum-api-*.zip
 
   docker:
     runs-on: ubuntu-latest
@@ -63,7 +65,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          cd dist && sha256sum * > SHA256SUMS && cd ..
+          (cd dist && sha256sum * > SHA256SUMS)
           # notes = this version's CHANGELOG section
           awk "/^## \[${GITHUB_REF_NAME#v}\]/{f=1;next} /^## \[/{f=0} f" CHANGELOG.md > notes.md
           printf '\n### Docker\n\n```sh\ndocker run -p 3000:3000 ghcr.io/%s:%s\n```\n' "${GITHUB_REPOSITORY,,}" "${GITHUB_REF_NAME#v}" >> notes.md
