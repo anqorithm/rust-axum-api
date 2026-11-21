@@ -4,6 +4,8 @@
 
 <p align="center">
   <a href="https://github.com/anqorithm/rust-axum-api/actions/workflows/ci.yml"><img src="https://github.com/anqorithm/rust-axum-api/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/anqorithm/rust-axum-api/releases/latest"><img src="https://img.shields.io/github/v/release/anqorithm/rust-axum-api?color=e8430c" alt="Release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/anqorithm/rust-axum-api" alt="License"></a>
   <img src="https://img.shields.io/badge/rust-2024_edition-f74c00?logo=rust" alt="Rust 2024">
   <img src="https://img.shields.io/badge/axum-0.8-blue" alt="Axum 0.8">
   <img src="https://img.shields.io/badge/sqlx-0.9-informational" alt="SQLx 0.9">
@@ -52,7 +54,22 @@ sequenceDiagram
     A-->>C: 200 OK / 404 Not Found
 ```
 
-## Run
+## Install
+
+**Prebuilt binary** (Linux x86_64, macOS Apple Silicon, Windows) from the [latest release](https://github.com/anqorithm/rust-axum-api/releases/latest):
+
+```sh
+curl -L https://github.com/anqorithm/rust-axum-api/releases/latest/download/rust-axum-api-v0.1.0-x86_64-unknown-linux-gnu.tar.gz | tar xz
+./rust-axum-api-v0.1.0-x86_64-unknown-linux-gnu/rust-axum-api
+```
+
+**Docker:**
+
+```sh
+docker run -p 3000:3000 -v todos:/data ghcr.io/anqorithm/rust-axum-api:latest
+```
+
+## Run from source
 
 ```sh
 cargo run   # listens on 0.0.0.0:3000, creates todos.db and runs migrations
@@ -105,3 +122,17 @@ $ curl localhost:3000/todos/42
 ```sh
 cargo test
 ```
+
+## Releasing
+
+Releases follow [SemVer](https://semver.org). Add a section to [CHANGELOG.md](CHANGELOG.md), bump `version` in `Cargo.toml`, merge to `main`, then tag:
+
+```sh
+git tag v0.2.0 && git push origin v0.2.0
+```
+
+The [release workflow](.github/workflows/release.yml) builds the binaries, pushes the Docker image to GHCR and publishes the GitHub release with checksums.
+
+## License
+
+[MIT](LICENSE)

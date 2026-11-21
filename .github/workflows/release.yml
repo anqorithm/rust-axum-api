@@ -1,0 +1,70 @@
+name: Release
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  binaries:
+    strategy:
+      matrix:
+        include:
+          - { os: ubuntu-latest, target: x86_64-unknown-linux-gnu }
+          - { os: macos-latest, target: aarch64-apple-darwin }
+          - { os: windows-latest, target: x86_64-pc-windows-msvc }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo build --release --locked
+      - name: Package
+        shell: bash
+        run: |
+          name=rust-axum-api-${GITHUB_REF_NAME}-${{ matrix.target }}
+          mkdir "$name"
+          cp README.md LICENSE "$name"/
+          if [ "$RUNNER_OS" = Windows ]; then
+            cp target/release/rust-axum-api.exe "$name"/
+            7z a "$name.zip" "$name" >/dev/null
+          else
+            cp target/release/rust-axum-api "$name"/
+            tar czf "$name.tar.gz" "$name"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.target }}
+          path: rust-axum-api-*.*
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build and push
+        run: |
+          image=ghcr.io/${GITHUB_REPOSITORY,,}
+          docker build -t "$image:${GITHUB_REF_NAME#v}" -t "$image:latest" \
+            --label org.opencontainers.image.source=https://github.com/${GITHUB_REPOSITORY} .
+          docker push --all-tags "$image"
+
+  release:
+    needs: [binaries, docker]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+          path: dist
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd dist && sha256sum * > SHA256SUMS && cd ..
+          # notes = this version's CHANGELOG section
+          awk "/^## \[${GITHUB_REF_NAME#v}\]/{f=1;next} /^## \[/{f=0} f" CHANGELOG.md > notes.md
+          printf '\n### Docker\n\n```sh\ndocker run -p 3000:3000 ghcr.io/%s:%s\n```\n' "${GITHUB_REPOSITORY,,}" "${GITHUB_REF_NAME#v}" >> notes.md
+          gh release create "$GITHUB_REF_NAME" dist/* --title "$GITHUB_REF_NAME" --notes-file notes.md
