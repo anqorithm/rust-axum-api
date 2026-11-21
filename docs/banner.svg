@@ -1,35 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="rust-axum-api: a REST API in Rust with Axum, SQLx and SQLite">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-label="rust-axum-api: a fast, tested REST API in Rust">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1a1410"/>
-      <stop offset="1" stop-color="#3b1f0f"/>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff8a3d"/>
+      <stop offset="1" stop-color="#e2420d"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#f74c00"/>
-      <stop offset="1" stop-color="#ffb347"/>
-    </linearGradient>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffb347"/>
-      <stop offset="1" stop-color="#e8430c"/>
-    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#ffffff" fill-opacity="0.06"/>
+    </pattern>
+    <radialGradient id="glow" cx="0.2" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff6a1f" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ff6a1f" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="1200" height="320" rx="24" fill="url(#bg)"/>
-  <g fill="none" stroke="#f74c00" stroke-opacity="0.18" stroke-width="2">
-    <circle cx="1040" cy="160" r="70"/><circle cx="1040" cy="160" r="110"/><circle cx="1040" cy="160" r="150"/>
+  <rect width="1280" height="400" rx="28" fill="#0d1117"/>
+  <rect width="1280" height="400" rx="28" fill="url(#dots)"/>
+  <rect width="1280" height="400" rx="28" fill="url(#glow)"/>
+  <g transform="translate(96 100) scale(0.390625)">
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lg)"/>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="30" d="M160 140 C124 140 124 164 124 196 L124 222 C124 244 114 256 96 256 C114 256 124 268 124 290 L124 316 C124 348 124 372 160 372"/>
+    <path stroke-width="30" d="M352 140 C388 140 388 164 388 196 L388 222 C388 244 398 256 416 256 C398 256 388 268 388 290 L388 316 C388 348 388 372 352 372"/>
+    <path stroke-width="40" d="M196 360 L256 160 L316 360"/>
+    <path stroke-width="28" d="M220 296 L292 296"/>
   </g>
-  <g transform="translate(917 37) scale(0.48)">
-  <!-- hexagon shell -->
-  <path d="M256 28 L453 142 L453 370 L256 484 L59 370 L59 142 Z" fill="#1c1410" stroke="url(#g)" stroke-width="22" stroke-linejoin="round"/>
-  <!-- "A" for API, its legs reach the hexagon like request routes -->
-  <path d="M152 380 L256 128 L360 380" fill="none" stroke="url(#g)" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- crossbar as a connection between two nodes -->
-  <line x1="196" y1="296" x2="316" y2="296" stroke="#fff4ea" stroke-width="16" stroke-linecap="round"/>
-  <circle cx="196" cy="296" r="22" fill="#fff4ea"/>
-  <circle cx="316" cy="296" r="22" fill="#fff4ea"/>
-  <circle cx="256" cy="128" r="26" fill="#fff4ea" stroke="url(#g)" stroke-width="10"/>
   </g>
-  <text x="80" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="64" font-weight="700" fill="#fff">rust-axum-api</text>
-  <rect x="80" y="165" width="220" height="6" rx="3" fill="url(#accent)"/>
-  <text x="80" y="220" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" fill="#e8d9cf">A fast, tested REST API in Rust</text>
-  <text x="80" y="262" font-family="ui-monospace, Menlo, monospace" font-size="20" fill="#ffb347">axum · tokio · sqlx · sqlite</text>
+  <text x="420" y="168" font-family="Inter, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="68" font-weight="800" letter-spacing="-2" fill="#f0f6fc">rust-axum-api</text>
+  <text x="422" y="222" font-family="Inter, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="27" fill="#8b949e">A fast, tested REST API in Rust · Axum · SQLx · SQLite</text>
+  <g transform="translate(420 268)">
+    <rect width="145" height="40" rx="10" fill="#161b22" stroke="#30363d"/>
+    <rect width="56" height="40" rx="10" fill="#22c55e" fill-opacity="0.16"/>
+    <text x="28" y="26" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700" fill="#22c55e">GET</text>
+    <text x="68" y="26" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#c9d1d9">/todos</text>
+  </g>
+  <g transform="translate(579 268)">
+    <rect width="156" height="40" rx="10" fill="#161b22" stroke="#30363d"/>
+    <rect width="67" height="40" rx="10" fill="#3b82f6" fill-opacity="0.16"/>
+    <text x="34" y="26" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700" fill="#3b82f6">POST</text>
+    <text x="79" y="26" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#c9d1d9">/todos</text>
+  </g>
+  <g transform="translate(749 268)">
+    <rect width="221" height="40" rx="10" fill="#161b22" stroke="#30363d"/>
+    <rect width="78" height="40" rx="10" fill="#f59e0b" fill-opacity="0.16"/>
+    <text x="39" y="26" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700" fill="#f59e0b">PATCH</text>
+    <text x="90" y="26" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#c9d1d9">/todos/{id}</text>
+  </g>
+  <g transform="translate(984 268)">
+    <rect width="232" height="40" rx="10" fill="#161b22" stroke="#30363d"/>
+    <rect width="89" height="40" rx="10" fill="#ef4444" fill-opacity="0.16"/>
+    <text x="44" y="26" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700" fill="#ef4444">DELETE</text>
+    <text x="101" y="26" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#c9d1d9">/todos/{id}</text>
+  </g>
 </svg>

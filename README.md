@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://github.com/anqorithm/rust-axum-api/actions/workflows/ci.yml"><img src="https://github.com/anqorithm/rust-axum-api/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/anqorithm/rust-axum-api/releases/latest"><img src="https://img.shields.io/github/v/release/anqorithm/rust-axum-api?color=e8430c" alt="Release"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/anqorithm/rust-axum-api" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
   <img src="https://img.shields.io/badge/rust-2024_edition-f74c00?logo=rust" alt="Rust 2024">
   <img src="https://img.shields.io/badge/axum-0.8-blue" alt="Axum 0.8">
   <img src="https://img.shields.io/badge/sqlx-0.9-informational" alt="SQLx 0.9">
